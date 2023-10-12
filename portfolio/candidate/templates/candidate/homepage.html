@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .burger-menu {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .burger-bar {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-right: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .prompt {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .sign-out-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF0000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .sign-out-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Candidate Website</h1>
+    </header>
+    <div class="container">
+        {% if user.is_authenticated %}
+            <div class="cta-buttons">
+                <a href="{% url 'blog' %}" class="cta-button">Read our blog</a>
+                <a href="{% url 'contact' %}" class="cta-button">Contact us</a>
+                <a href="{% url 'logout' %}" class="sign-out-button">Sign Out</a>
+            </div>
+        {% else %}
+            <div class="prompt">
+                <p>Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'signup' %}">sign up</a> to access the content.</p>
+            </div>
+        {% endif %}
+
+        <body>
+            <h1>Candidate Overview</h1>
+            <div class="candidate-info">
+                <p><strong>Candidate Name:</strong> Muzammil</p>
+                <p><strong>Party Affiliation:</strong> Independent</p>
+                <p class="campaign-slogan">"Empowering Communities for a Brighter Tomorrow"</p>
+        
+                <div class="key-issues">
+                    <h2>Key Campaign Issues:</h2>
+                    <ul>
+                        <li class="key-issue">Economic Prosperity: Muzammil is committed to fostering economic growth and job creation through targeted investments in local businesses, infrastructure, and workforce development.</li>
+                        <li class="key-issue">Healthcare Access: Muzammil believes that every individual should have access to affordable and comprehensive healthcare.</li>
+                        <li class="key-issue">Environmental Sustainability: Muzammil is a strong advocate for environmental conservation and renewable energy. He aims to promote sustainable practices, reduce carbon emissions, and protect our natural resources.</li>
+                    </ul>
+                </div>
+        
+                <div class="community-engagement">
+                    <h2>Community Engagement:</h2>
+                    <p>Muzammil is known for his dedication to engaging with constituents. He regularly hosts town hall meetings, listens to community concerns, and seeks input from a diverse range of voices to inform his policy decisions.</p>
+                </div>
+        
+                <div class="vision">
+                    <h2>Vision for the Future:</h2>
+                    <p>Muzammil envisions a future where our community thrives, where opportunities are accessible to all, and where the well-being of residents is at the forefront of policymaking. He is committed to working tirelessly to make this vision a reality.</p>
+                </div>
+        
+                <div class="get-involved">
+                    <h2>Get Involved:</h2>
+                    <p>Join the campaign to make a difference. Volunteer, donate, or connect with Muzammil Kader's campaign to help create positive change in our district.</p>
+                </div>
+            </div>
+        </body>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.burger-menu');
+            const ctaButtons = document.querySelector('.cta-buttons');
+            menu.classList.toggle('open');
+            ctaButtons.classList.toggle('menu-open');
+        }
+    </script>
+</body>
+</html>
